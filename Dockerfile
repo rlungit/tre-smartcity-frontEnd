@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node
 RUN  npm install -g npm@4 && \
 	git clone https://github.com/TampereTC/tre-smartcity-frontEnd && \
 	cd tre-smartcity-frontEnd && \
