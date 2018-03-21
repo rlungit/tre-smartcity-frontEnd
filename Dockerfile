@@ -12,7 +12,7 @@ EXPOSE 5000
 
 # Install all dependencies of the current project.
 RUN  git clone https://github.com/TampereTC/tre-smartcity-frontEnd && \
-	 cd tre-smartcity-backEnd && \
+	 cd tre-smartcity-frontEnd && \
 	 npm install
 
 
