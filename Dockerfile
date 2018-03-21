@@ -2,21 +2,15 @@
 # are running the same version of Node.
 FROM node:7.8.0
 
-# Override the base log level (info).
+# The base node image sets a very verbose log level.
 ENV NPM_CONFIG_LOGLEVEL warn
 
-# Install and configure `serve`.
-RUN npm install -g serve
-CMD serve -s build
-EXPOSE 5000
-
-# Install all dependencies of the current project.
+# Copy all local files into the image.
 RUN  git clone https://github.com/TampereTC/tre-smartcity-frontEnd && \
-	 cd tre-smartcity-frontEnd && \
-	 npm install
+	 cd tre-smartcity-frontEnd
 
-
-# Build for production.
-RUN npm run build --production
-
+WORKDIR tre-smartcity-frontEnd
+RUN npm install
+EXPOSE 3000
+CMD [ "npm", "start" ]
 
