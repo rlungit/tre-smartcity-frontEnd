@@ -24,14 +24,15 @@ export default class MapContainer extends Component {
 //This function fetches data from backend and stores in state object
   fetchData() {
     console.log("fetch Data");
-    axios.get('http://backend:3001/')
+    axios.get("http://"+loation.host+":3001/")
       .then( (response) => {
         console.log("response", parseFloat(response));
         const location =response.data;
         this.setState({ location });
       })
       .catch( (error) => {
-        console.log(error);
+      console.log("I am in error");  
+      console.log(error);
       });
   }
 
