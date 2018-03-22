@@ -13,7 +13,6 @@ export default class MapContainer extends Component {
   }
  
   componentDidUpdate(prevProps, prevState) {
-    console.log("Update")
     if (prevProps.google !== this.props.google || prevProps.locations !== this.props.locations) {
       this.loadMap()
       this.fetchData()
@@ -23,15 +22,13 @@ export default class MapContainer extends Component {
 
 //This function fetches data from backend and stores in state object
   fetchData() {
-    console.log("fetch Data");
     axios.get("http://localhost:3001")
       .then( (response) => {
         console.log("response", parseFloat(response));
         const location =response.data;
         this.setState({ location });
       })
-      .catch( (error) => {
-      console.log("I am in error");  
+      .catch( (error) => { 
       console.log(error);
       });
   }
@@ -39,7 +36,6 @@ export default class MapContainer extends Component {
 
 //This function will be called initially
 componentWillMount(){
-  console.log("Will mount")
     this.fetchData()
   }
 
