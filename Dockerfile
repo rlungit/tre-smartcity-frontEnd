@@ -11,6 +11,7 @@ RUN  git clone https://github.com/TampereTC/tre-smartcity-frontEnd && \
 
 WORKDIR tre-smartcity-frontEnd
 RUN npm install
+VOLUME ["tre-smartcity-frontEnd"]
 EXPOSE 3000
 CMD [ "npm", "start" ]
 
