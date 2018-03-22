@@ -24,7 +24,7 @@ export default class MapContainer extends Component {
 //This function fetches data from backend and stores in state object
   fetchData() {
     console.log("fetch Data");
-    axios.get("http://172.18.0.6:3001")
+    axios.get("http://localhost:3001")
       .then( (response) => {
         console.log("response", parseFloat(response));
         const location =response.data;
