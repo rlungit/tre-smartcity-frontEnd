@@ -13,10 +13,10 @@ export default class MapContainer extends Component {
   }
  
   componentDidUpdate(prevProps, prevState) {
-    console.log("Update");
+    console.log("Update")
     if (prevProps.google !== this.props.google || prevProps.locations !== this.props.locations) {
-      this.loadMap();
-      this.fetchData();
+      this.loadMap()
+      this.fetchData()
     }
   }
 
@@ -38,7 +38,7 @@ export default class MapContainer extends Component {
 
 //This function will be called initially
 componentWillMount(){
-  console.log("Will mount");
+  console.log("Will mount")
     this.fetchData()
   }
 
