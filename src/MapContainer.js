@@ -9,29 +9,21 @@ export default class MapContainer extends Component {
   // ======================
   
  state = {
-    location: [
-      /*{ name: "New York County Supreme Court", location: {lat: 40.7143033, lng: -74.0036919} },
-      { name: "Queens County Supreme Court", location: {lat: 40.7046946, lng: -73.8091145} },
-      { name: "Kings County Supreme Court", location: {lat: 40.6940226, lng: -73.9890967} },
-      { name: "Richmond County Supreme Court", location: {lat: 40.6412336, lng: -74.0768597} },
-      { name: "Bronx Supreme Court", location: {lat: 40.8262388, lng: -73.9235238} }*/
-    ]
+    location: []
   }
  
   componentDidUpdate(prevProps, prevState) {
+    console.log("Update");
     if (prevProps.google !== this.props.google || prevProps.locations !== this.props.locations) {
       this.loadMap();
       this.fetchData();
     }
   }
 
-  /*componentDidUpdate() {
-      setInterval(this.loadMap(),60000); // call loadMap function to load the google map
-  }*/
-
 
 //This function fetches data from backend and stores in state object
   fetchData() {
+    console.log("fetch Data");
     axios.get('http://backend:3001/')
       .then( (response) => {
         console.log("response", parseFloat(response));
@@ -46,6 +38,7 @@ export default class MapContainer extends Component {
 
 //This function will be called initially
 componentWillMount(){
+  console.log("Will mount");
     this.fetchData()
   }
 
