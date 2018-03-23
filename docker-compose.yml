@@ -1,0 +1,69 @@
+version: '3'
+
+services:
+
+ mqtt:
+    image: eclipse-mosquitto
+    hostname: mqtt
+    container_name: mqtt
+    expose:
+       - "1883"
+       - "9001"
+
+ mongodb:
+    image: mongo:3.4
+    hostname: mongodb
+    container_name: mongodb
+    expose:
+        - "27017"
+    command: --nojournal
+
+ orion:
+    image: fiware/orion:latest
+    hostname: orion
+    container_name: orion
+    links:
+        - mongodb
+    expose:
+        - "1026"
+    ports:
+        - "1026:1026"
+    command: -dbhost mongodb
+
+
+ idas:
+    image: fiware/iotagent-ul:develop
+    hostname: idas
+    container_name: idas
+    links:
+        - mongodb:mongo
+        - orion
+        - mqtt
+    expose:
+        - "7896"
+        - "4041"
+    ports:
+        - "7896:7896"
+        - "4041:4041"
+
+ backend:
+    image: tamperetc/tre-smartcity-backend:latest
+    hostname: backend
+    container_name: backend
+    links:
+        - orion
+    expose:
+        - "3001"
+    ports:
+        - "3001:3001"
+
+ frontend:
+    image: tamperetc/tre-smartcity-frontend:latest
+    hostname: frontend
+    container_name: frontend
+    links:
+        - backend
+    expose:
+        - "3000"
+    ports:
+        - "3000:3000"
