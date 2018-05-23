@@ -17,5 +17,5 @@ class App extends Component {
 }
 // OTHER MOST IMPORTANT: Here we are exporting the App component WITH the GoogleApiWrapper. You pass it down with an object containing your API key
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyChZPizXo_3sk70Cm4yveOd0YfQtuxc7As',
+  apiKey: 'AIzaSyCPvegTVYEK30o7eLBed8y1ikDlPpW0wr4',
 })(App)
