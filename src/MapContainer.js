@@ -12,11 +12,8 @@ export default class MapContainer extends Component {
     location: []
   }
  
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.google !== this.props.google || prevProps.locations !== this.props.locations) {
-      this.loadMap()
-      this.fetchData()
-    }
+  componentDidUpdate() {
+      this.loadMap()   
   }
 
 
@@ -24,7 +21,6 @@ export default class MapContainer extends Component {
   fetchData() {
     axios.get("http://localhost:3001")
       .then( (response) => {
-        console.log("response", parseFloat(response));
         const location =response.data;
         this.setState({ location });
       })
@@ -40,7 +36,6 @@ componentWillMount(){
   }
 
   loadMap() {
-   // this.fetchData();
     if (this.props && this.props.google) { // checks to make sure that props have been passed
       const {google} = this.props; // sets props equal to google
       const maps = google.maps; // sets maps to google maps props
