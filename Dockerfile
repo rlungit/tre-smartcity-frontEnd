@@ -9,7 +9,7 @@ ENV NPM_CONFIG_LOGLEVEL warn
 #https://github.com/rlungit/tre-smartcity-frontEnd.git
 
 #RUN  git clone https://github.com/TampereTC/tre-smartcity-frontEnd && \
-	 cd tre-smartcity-frontEnd
+#	 cd tre-smartcity-frontEnd
 RUN  git clone https://github.com/rlungit/tre-smartcity-frontEnd && \
 	 cd tre-smartcity-frontEnd
 
