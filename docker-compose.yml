@@ -58,7 +58,9 @@ services:
         - "3001:3001"
 
  frontend:
-    image: tamperetc/tre-smartcity-frontend:latest
+    image: rlundoc/tre-smartcity-frontend:latest
+    #image: tamperetc/tre-smartcity-frontend:latest
+    #docker pull rlundoc/tre-smartcity-frontend
     hostname: frontend
     container_name: frontend
     links:
